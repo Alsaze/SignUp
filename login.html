@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <title>SignUp</title>
+</head>
+<body>
+<div class="register container">
+    <div class="main-logo">
+        <img src="img/mainlogo.svg" alt="">
+        <p>
+            Day<span>Task</span>
+        </p>
+    </div>
+    <p class="register-title">
+        Welcome Back!
+    </p>
+
+    <div class="register-block">
+        Email Address
+        <label class="register-block-field">
+            <img src="img/personbordersvg.svg" alt="">
+            <input type="text" id="login-input-mail" placeholder="Enter email">
+        </label>
+    </div>
+    <div class="register-block">
+        Password
+        <label class="register-block-field">
+            <img src="img/lock.svg" alt="">
+            <input type="password" id="login-input-password" placeholder="Enter your password">
+            <button></button>
+        </label>
+    </div>
+    <div class="register-forgot-password">
+        <a>
+            Forgot Password?
+        </a>
+    </div>
+
+    <div class="button-login">
+        <button onclick="login()" class="button">Log In</button>
+    </div>
+
+    <div class="register-change">
+        Don’t have an account? <a href="register.html">Sign Up</a>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

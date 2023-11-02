@@ -1,0 +1,287 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*,
+*:before,
+*:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus:active {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+    display: block;
+}
+
+html {
+    height: 100%;
+}
+
+html,
+body {
+    min-height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 100%;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+
+input,
+button,
+textarea {
+    font-family: inherit;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+/*--------------------*/
+body {
+    background: #212832;
+}
+
+.container {
+    margin-inline: auto;
+}
+
+.main-logo {
+    position: sticky;
+    text-align: center;
+
+    font-size: 25px;
+    font-weight: 600;
+
+    & span {
+        color: #FED36A;
+    }
+}
+
+.button {
+    width: 100%;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    padding-block: 20px;
+    background: #FED36A;
+}
+
+.register {
+    height: 100%;
+
+    padding: 37px 26px 26px;
+    background: #212832;
+
+    border-radius: 20px;
+}
+
+.register-title {
+    margin-top: 50px;
+
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.register-block {
+    cursor: pointer;
+    margin-top: 27px;
+    color: #8CAAB9;
+    font-size: 18px;
+}
+
+.register-block-error-message {
+    margin-top: 10px;
+    color: red;
+}
+
+.register-block-field {
+    margin-top: 16px;
+
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    background: #455A64;
+    cursor: text;
+
+    & img {
+        margin-right: 26px;
+    }
+
+    & input {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        flex: 1;
+        line-height: 100%;
+        color: #FFF;
+        background: transparent;
+        outline: none;
+
+        &::-ms-reveal,
+        &::-ms-clear {
+            display: none;
+        }
+    }
+
+    & button {
+        width: 24px;
+        height: 24px;
+
+        background-image: url("img/eyeslash.png");
+        background-size: cover;
+        transition: opacity .2s ease-out;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+.register-block-error {
+    border: solid red;
+}
+
+.register-forgot-password {
+    margin-top: 12px;
+    position: relative;
+
+    height: 18px;
+    color: #8CAAB9;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    transition: opacity .2s ease-out;
+
+    &:hover {
+        opacity: 0.7;
+    }
+
+    & a {
+        position: absolute;
+        right: 0;
+    }
+}
+
+.register-privacy {
+    margin-top: 17px;
+    text-align: center;
+    display: flex;
+
+    color: #8CAAB9;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+
+    & button {
+        background: transparent;
+        transition: opacity .2s ease-out;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    & div {
+        margin-left: 10px;
+        text-align: left;
+
+        & a {
+            line-height: 100%;
+            color: #FED36A;
+            transition: opacity .2s ease-out;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.button-login {
+    margin-top: 38px;
+    transition: opacity .2s ease-out;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+
+.register-change {
+    margin-top: 25px;
+    text-align: center;
+
+    color: #8CAAB9;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+
+    & a {
+        color: #FED36A;
+        transition: opacity .2s ease-out;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
