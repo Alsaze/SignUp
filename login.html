@@ -26,21 +26,31 @@
         Welcome Back!
     </p>
 
-    <div class="register-block">
+    <div class="register-block" onchange="onchangeInput(id)" id="login-block-mail">
         Email Address
-        <label class="register-block-field">
+        <label class="register-block-field" id="login-block-field-profileMail">
             <img src="img/personbordersvg.svg" alt="">
-            <input type="text" id="login-input-mail" placeholder="Enter email">
+            <input type="text" id="login-input-mail"
+                   placeholder="Enter email">
         </label>
+        <div class="register-block-error-message" id="login-block-error-message-mail">
+
+        </div>
     </div>
-    <div class="register-block">
+
+    <div class="register-block" onchange="onchangeInput(id)" id="login-block-password">
         Password
-        <label class="register-block-field">
+        <label class="register-block-field" id="login-block-field-password">
             <img src="img/lock.svg" alt="">
-            <input type="password" id="login-input-password" placeholder="Enter your password">
-            <button></button>
+            <input type="password" id="login-input-password"
+                   placeholder="Enter your password">
+            <button onclick="passwordChange(id)" id="register-block-eye-password"></button>
         </label>
+        <div class="register-block-error-message" id="login-block-error-message-password">
+
+        </div>
     </div>
+
     <div class="register-forgot-password">
         <a>
             Forgot Password?

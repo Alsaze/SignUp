@@ -198,7 +198,8 @@ body {
 }
 
 .register-block-error {
-    border: solid red;
+    outline: solid red;
+    outline-offset: -3px;
 }
 
 .register-forgot-password {

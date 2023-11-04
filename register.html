@@ -26,11 +26,11 @@
         Create your account
     </p>
 
-    <div class="register-block" id="register-block-profileName">
+    <div class="register-block" onchange="onchangeInput(id)" id="register-block-profileName">
         Profile Name
         <label class="register-block-field" id="register-block-field-profileName">
             <img src="img/user.svg" alt="">
-            <input type="text" onchange="onchangeRegisterInputProfileName()" id="register-input-profileName"
+            <input type="text" id="register-input-profileName"
                    placeholder="Enter your profileName">
         </label>
         <div class="register-block-error-message" id="register-block-error-message-profileName">
@@ -38,11 +38,11 @@
         </div>
     </div>
 
-    <div class="register-block" id="register-block-mail">
+    <div class="register-block" onchange="onchangeInput(id)" id="register-block-mail">
         Email Address
         <label class="register-block-field" id="register-block-field-profileMail">
             <img src="img/personbordersvg.svg" alt="">
-            <input type="text" onchange="onchangeRegisterInputProfileMail()" id="register-input-mail"
+            <input type="text" id="register-input-mail"
                    placeholder="Enter your mail">
         </label>
         <div class="register-block-error-message" id="register-block-error-message-mail">
@@ -50,13 +50,13 @@
         </div>
     </div>
 
-    <div class="register-block" id="register-block-password">
+    <div class="register-block" onchange="onchangeInput(id)" id="register-block-password">
         Password
         <label class="register-block-field" id="register-block-field-profilePassword">
             <img src="img/lock.svg" alt="">
-            <input type="password" onchange="onchangeRegisterInputProfilePassword()" id="register-input-password"
+            <input type="password" id="register-input-password"
                    placeholder="Enter your password">
-            <button onclick="passwordChange()"></button>
+            <button onclick="passwordChange(id)" id="register-block-eye-password"></button>
         </label>
         <div class="register-block-error-message" id="register-block-error-message-password">
 
