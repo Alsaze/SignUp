@@ -20,20 +20,42 @@ function onchangeInput(id) { //id = login-block-mail
     createWrongBlock(label, error, input, message, isEmpty);
 
     if ((input.id === "login-input-mail") || (input.id === "register-input-mail")) {
+        validateField(label, error, input, validateEmail, isEmpty)
+    }
 
-        if (isEmpty) return;
+    if ((input.id === "login-input-password") || (input.id === "register-input-password")) {
+        validateField(label, error, input, validatePassword, isEmpty)
+    }
 
-        const mailCorrect = !(validateEmail(input.value));
-
-        const message = input.value + " is not correct";
-
-        createWrongBlock(label, error, input, message, mailCorrect);
+    if (input.id === "register-input-profileName") {
+        validateField(label, error, input, validateName, isEmpty)
     }
 }
+
+function validateField(label, error, input, validate, isEmpty) {
+    if (isEmpty) return;
+    const nameCorrect = !validate(input.value);
+    const message = input.value + " is not correct";
+    createWrongBlock(label, error, input, message, nameCorrect);
+}
+
 
 function validateEmail(email) {
     let re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
     return re.test(String(email).toLowerCase());
+}
+
+function validatePassword(password) {
+    let uppers = /[A-Z]/.test(password); // Есть хотя бы одна буква в верхнем регистре
+    let lowers = /[a-z]/.test(password); // Есть хотя бы одна буква в нижнем регистре
+    let numbers = /\d/.test(password); // Есть хотя бы одна цифра
+    // Длина пароля не меньше 8-ми символов. Пароль использует только латинские буквы и цифры.
+    let onlyLatin = /^[A-Za-z\d]{8,}$/.test(password);
+    return uppers && lowers && numbers && onlyLatin;
+}
+
+function validateName(name) {
+    return /^[a-zA-Zа-яА-ЯёЁ'][a-zA-Z-а-яА-ЯёЁ' ]+[a-zA-Zа-яА-ЯёЁ']?$/.test(name)
 }
 
 function createWrongBlock(label, error, input, message, bool = false) {
@@ -49,9 +71,9 @@ function createWrongMessage(error, message, bool = false) {
     bool ? error.innerHTML = message : error.innerHTML = ' ';
 }
 
-function register() {
-    const userRegisterData = {}
-    let json = JSON.stringify(userRegisterData);
-
-    //тут вызываем метод который отправляет userRegisterData на бэк
-}
+// function register() {
+//     const userRegisterData = {}
+//     let json = JSON.stringify(userRegisterData);
+//
+//     //тут вызываем метод который отправляет userRegisterData на бэк
+// }
