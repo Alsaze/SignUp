@@ -9,31 +9,25 @@ function passwordChange(id) {
 function onchangeInput(id) { //id = login-block-mail
     const children = document.getElementById(id).children;
     const label = document.getElementById(children[0].id); //login-block-field-profileMail
-
     const error = document.getElementById(children[1].id); //login-block-error-message-mail
 
     const childrenLabel = document.getElementById(children[0].id).children;
     const input = document.getElementById(childrenLabel[1].id); //login-input-mail
 
-    const bool = input.value === undefined || input.value === '';
-    wrongField(label, bool);
+
+    const isEmpty = input.value === undefined || input.value === '';
     const message = "You must fill this field";
-    createWrongMessage(error, message, bool);
+    createWrongBlock(label, error, input, message, isEmpty);
 
-    if (input.id === "login-input-mail" || "register-input-mail"){
+    if ((input.id === "login-input-mail") || (input.id === "register-input-mail")) {
 
-        if (bool) return;
+        if (isEmpty) return;
 
-        if (validateEmail(input.value)) {
-            wrongField(label, false);
+        const mailCorrect = !(validateEmail(input.value));
 
-            createWrongMessage(error, message, false);
-        } else {
-            wrongField(label, true);
+        const message = input.value + " is not correct";
 
-            const message = input.value + " is not correct";
-            createWrongMessage(error, message, true);
-        }
+        createWrongBlock(label, error, input, message, mailCorrect);
     }
 }
 
@@ -42,8 +36,12 @@ function validateEmail(email) {
     return re.test(String(email).toLowerCase());
 }
 
+function createWrongBlock(label, error, input, message, bool = false) {
+    createWrongField(label, bool);
+    createWrongMessage(error, message, bool);
+}
 
-function wrongField(field, bool = false) {
+function createWrongField(field, bool = false) {
     field.classList.toggle("register-block-error", bool);
 }
 
@@ -52,9 +50,7 @@ function createWrongMessage(error, message, bool = false) {
 }
 
 function register() {
-    const userRegisterData = {
-
-    }
+    const userRegisterData = {}
     let json = JSON.stringify(userRegisterData);
 
     //тут вызываем метод который отправляет userRegisterData на бэк
