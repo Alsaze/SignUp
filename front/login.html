@@ -15,7 +15,7 @@
     <title>SignUp</title>
 </head>
 <body>
-<div class="register container">
+<form class="register container" id="login-form">
     <div class="main-logo">
         <img src="img/mainlogo.svg" alt="">
         <p>
@@ -30,7 +30,7 @@
         Email Address
         <label class="register-block-field" id="login-block-field-profileMail">
             <img src="img/personbordersvg.svg" alt="">
-            <input type="text" id="login-input-mail"
+            <input type="text" id="login-input-mail" name="email"
                    placeholder="Enter email">
         </label>
         <div class="register-block-error-message" id="login-block-error-message-mail">
@@ -42,7 +42,7 @@
         Password
         <label class="register-block-field" id="login-block-field-password">
             <img src="img/lock.svg" alt="">
-            <input type="password" id="login-input-password"
+            <input type="password" id="login-input-password" name="password"
                    placeholder="Enter your password">
             <button onclick="passwordChange(id)" id="register-block-eye-password"></button>
         </label>
@@ -58,13 +58,13 @@
     </div>
 
     <div class="button-login">
-        <button onclick="login()" class="button">Log In</button>
+        <button type="submit" class="button">Log In</button>
     </div>
 
     <div class="register-change">
         Don’t have an account? <a href="register.html">Sign Up</a>
     </div>
-</div>
+</form>
 <script src="script.js"></script>
 </body>
 </html>

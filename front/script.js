@@ -1,3 +1,25 @@
+const registerFormEl = document.getElementById('register-form');
+const loginFormEl = document.getElementById('login-form');
+
+registerFormEl?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(registerFormEl);
+    const newUser = Object.fromEntries(formData.entries());
+
+    await register(newUser.email, newUser.name, newUser.password);
+});
+loginFormEl?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(loginFormEl);
+    const creds = Object.fromEntries(formData.entries());
+
+    console.log(creds)
+
+    await login(creds.email, creds.password);
+});
+
 function passwordChange(id) {
     const parent = document.getElementById(id).parentElement;
     const children = parent.children;
@@ -71,9 +93,53 @@ function createWrongMessage(error, message, bool = false) {
     bool ? error.innerHTML = message : error.innerHTML = ' ';
 }
 
-// function register() {
-//     const userRegisterData = {}
-//     let json = JSON.stringify(userRegisterData);
-//
-//     //тут вызываем метод который отправляет userRegisterData на бэк
-// }
+(async () => {
+    const usersResponse = await fetch('http://localhost:1488/users');
+    const users = await usersResponse.text();
+})();
+
+async function register(email, name, password) {
+    try {
+        const response = await fetch('http://localhost:1488/register', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({email, name, password})
+        });
+        const newUser = await response.json();
+
+        if (!response.ok) {
+            throw new Error(newUser);
+        }
+
+        console.log(newUser);
+        alert('Заебумба');
+
+        location.href = "/login.html";
+    } catch (e) {
+        alert(`ОШИБКА: ${e.message}`);
+    }
+}
+
+async function login(email, password) {
+    try {
+        const response = await fetch('http://localhost:1488/login', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({email, password})
+        });
+        const user = await response.json();
+
+        if (!response.ok) {
+            throw new Error(user);
+        }
+
+        console.log(user);
+        alert('Заебумба');
+    } catch (e) {
+        alert(`ОШИБКА: ${e.message}`);
+    }
+}

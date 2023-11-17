@@ -15,7 +15,7 @@
     <title>SignUp</title>
 </head>
 <body>
-<div class="register container">
+<form class="register container" id="register-form">
     <div class="main-logo">
         <img src="img/mainlogo.svg" alt="">
         <p>
@@ -30,7 +30,7 @@
         Profile Name
         <label class="register-block-field" id="register-block-field-profileName">
             <img src="img/user.svg" alt="">
-            <input type="text" id="register-input-profileName"
+            <input type="text" id="register-input-profileName" name="name"
                    placeholder="Enter your profileName">
         </label>
         <div class="register-block-error-message" id="register-block-error-message-profileName">
@@ -43,6 +43,7 @@
         <label class="register-block-field" id="register-block-field-profileMail">
             <img src="img/personbordersvg.svg" alt="">
             <input type="text" id="register-input-mail"
+                   name="email"
                    placeholder="Enter your mail">
         </label>
         <div class="register-block-error-message" id="register-block-error-message-mail">
@@ -55,8 +56,8 @@
         <label class="register-block-field" id="register-block-field-profilePassword">
             <img src="img/lock.svg" alt="">
             <input type="password" id="register-input-password"
-                   placeholder="Enter your password">
-            <button onclick="passwordChange(id)" id="register-block-eye-password"></button>
+                   placeholder="Enter your password" name="password">
+            <button type="button" onclick="passwordChange(id)" id="register-block-eye-password"></button>
         </label>
         <div class="register-block-error-message" id="register-block-error-message-password">
 
@@ -64,7 +65,7 @@
     </div>
 
     <div class="register-privacy">
-        <button>
+        <button type="button">
             <img src="img/ticksquare.png" alt="">
         </button>
         <div>
@@ -74,13 +75,13 @@
     </div>
 
     <div class="button-login">
-        <button onclick="register()" class="button">Sign Up</button>
+        <button type="submit" class="button">Sign Up</button>
     </div>
 
     <div class="register-change">
         Already have an account? <a href="login.html">Log In</a>
     </div>
-</div>
+</form>
 <script src="script.js"></script>
 </body>
 </html>
